@@ -3,6 +3,40 @@
   
     
     <entry>
+      <title>线程池的好处</title>
+      <link href="/2018/08/14/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%A5%BD%E5%A4%84/"/>
+      <url>/2018/08/14/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%A5%BD%E5%A4%84/</url>
+      <content type="html"><![CDATA[<h3 id="线程池（Thread-Pool）"><a href="#线程池（Thread-Pool）" class="headerlink" title="线程池（Thread Pool）"></a>线程池（Thread Pool）</h3><p>​    线程池是一种线程使用模式， 线程过多会带来调度开销，进而影响缓存局部性和整体性能。 而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。 这避免了在处理短时间任务时创建与销毁线程的代价 </p><h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>​    当需要创建多个线程并且每个线程的处理时间都比较短时。</p><h3 id="Java中线程池的实现"><a href="#Java中线程池的实现" class="headerlink" title="Java中线程池的实现"></a>Java中线程池的实现</h3><p>​    java.uitl.concurrent.ThreadPoolExecutor类是线程池最核心的一个类，包含四个构造方法：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolExecutor</span> <span class="keyword">extends</span> <span class="title">AbstractExecutorService</span> </span>&#123;</span><br><span class="line">    .....</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">            BlockingQueue&lt;Runnable&gt; workQueue)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">            BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">            BlockingQueue&lt;Runnable&gt; workQueue,RejectedExecutionHandler handler)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">        BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    </p><blockquote><p>详情解读参考<a href="https://www.cnblogs.com/dolphin0520/p/3932921.html" target="_blank" rel="noopener">Java并发编程：线程池的使用</a></p></blockquote>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 并发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>JAVA中的Thread</title>
+      <link href="/2018/08/13/JAVA%E4%B8%AD%E7%9A%84Thread/"/>
+      <url>/2018/08/13/JAVA%E4%B8%AD%E7%9A%84Thread/</url>
+      <content type="html"><![CDATA[<h3 id="线程介绍"><a href="#线程介绍" class="headerlink" title="线程介绍"></a>线程介绍</h3><p>​    一个进程内可以有多个线程，各个线程都拥有各自的计数器、堆栈、局部变量等属性，并且可以访问共享内存</p><h3 id="创建线程的三种方式"><a href="#创建线程的三种方式" class="headerlink" title="创建线程的三种方式"></a>创建线程的三种方式</h3><h5 id="1-实现Runnable接口"><a href="#1-实现Runnable接口" class="headerlink" title="1.实现Runnable接口"></a>1.实现Runnable接口</h5><h5 id="2-继承Thread，重写其run方法"><a href="#2-继承Thread，重写其run方法" class="headerlink" title="2.继承Thread，重写其run方法"></a>2.继承Thread，重写其run方法</h5><h5 id="3-实现Callble接口，重写call-方法，用FutureTask获得结果"><a href="#3-实现Callble接口，重写call-方法，用FutureTask获得结果" class="headerlink" title="3.实现Callble接口，重写call()方法，用FutureTask获得结果"></a>3.实现Callble接口，重写call()方法，用FutureTask获得结果</h5><h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><table><thead><tr><th>线程状态</th><th>介绍</th><th>备注</th></tr></thead><tbody><tr><td>NEW</td><td>新创建</td><td>还未调用start()方法，还不是alive</td></tr><tr><td>RUNNABLE</td><td>就绪的</td><td>调用了start()方法，处于就绪队列，alive</td></tr><tr><td>RUNNING</td><td>运行中</td><td>获得了CPU资源，正在执行任务</td></tr><tr><td>BLOCKED</td><td>阻塞</td><td>线程阻塞与锁货调用了sleep()</td></tr><tr><td>WAITING</td><td>等待</td><td></td></tr><tr><td>TIME_WATING</td><td>超时等待</td><td></td></tr><tr><td>TERMINATED</td><td>终止</td></tr></tbody></table>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 并发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2018/08/02/hello-world/"/>
       <url>/2018/08/02/hello-world/</url>

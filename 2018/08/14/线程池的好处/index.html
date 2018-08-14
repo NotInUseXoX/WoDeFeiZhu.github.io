@@ -15,13 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="WoDeFeiZhu">
-<meta property="og:url" content="http://wodefeizhu.github.io/archives/2018/index.html">
+<meta name="description" content="线程池（Thread Pool）​    线程池是一种线程使用模式， 线程过多会带来调度开销，进而影响缓存局部性和整体性能。 而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。 这避免了在处理短时间任务时创建与销毁线程的代价  场景​    当需要创建多个线程并且每个线程的处理时间都比较短时。 Java中线程池的实现​    java.uitl.concurrent.ThreadPoo">
+<meta name="keywords" content="Java,并发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程池的好处">
+<meta property="og:url" content="http://wodefeizhu.github.io/2018/08/14/线程池的好处/index.html">
 <meta property="og:site_name" content="WoDeFeiZhu">
+<meta property="og:description" content="线程池（Thread Pool）​    线程池是一种线程使用模式， 线程过多会带来调度开销，进而影响缓存局部性和整体性能。 而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。 这避免了在处理短时间任务时创建与销毁线程的代价  场景​    当需要创建多个线程并且每个线程的处理时间都比较短时。 Java中线程池的实现​    java.uitl.concurrent.ThreadPoo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-14T06:41:41.033Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WoDeFeiZhu">
+<meta name="twitter:title" content="线程池的好处">
+<meta name="twitter:description" content="线程池（Thread Pool）​    线程池是一种线程使用模式， 线程过多会带来调度开销，进而影响缓存局部性和整体性能。 而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。 这避免了在处理短时间任务时创建与销毁线程的代价  场景​    当需要创建多个线程并且每个线程的处理时间都比较短时。 Java中线程池的实现​    java.uitl.concurrent.ThreadPoo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2018 | WoDeFeiZhu</title>
+<title>线程池的好处 | WoDeFeiZhu</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +68,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -252,118 +257,159 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-线程池的好处" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/08/14/线程池的好处/" class="archive-article-date">
-      <time datetime="2018-08-14T06:26:25.000Z" itemprop="datePublished">08-14</time>
+    <div class="article-meta">
+      <a href="/2018/08/14/线程池的好处/" class="article-date">
+      <time datetime="2018-08-14T06:26:25.000Z" itemprop="datePublished">2018-08-14</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/线程池的好处/">线程池的好处</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      线程池的好处
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并发/">并发</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="线程池（Thread-Pool）"><a href="#线程池（Thread-Pool）" class="headerlink" title="线程池（Thread Pool）"></a>线程池（Thread Pool）</h3><p>​    线程池是一种线程使用模式， 线程过多会带来调度开销，进而影响缓存局部性和整体性能。 而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。 这避免了在处理短时间任务时创建与销毁线程的代价 </p>
+<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>​    当需要创建多个线程并且每个线程的处理时间都比较短时。</p>
+<h3 id="Java中线程池的实现"><a href="#Java中线程池的实现" class="headerlink" title="Java中线程池的实现"></a>Java中线程池的实现</h3><p>​    java.uitl.concurrent.ThreadPoolExecutor类是线程池最核心的一个类，包含四个构造方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolExecutor</span> <span class="keyword">extends</span> <span class="title">AbstractExecutorService</span> </span>&#123;</span><br><span class="line">    .....</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">            BlockingQueue&lt;Runnable&gt; workQueue)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">            BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">            BlockingQueue&lt;Runnable&gt; workQueue,RejectedExecutionHandler handler)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">        BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    </p>
+<blockquote>
+<p>详情解读参考<a href="https://www.cnblogs.com/dolphin0520/p/3932921.html" target="_blank" rel="noopener">Java并发编程：线程池的使用</a></p>
+</blockquote>
+
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/08/13/JAVA中的Thread/" class="archive-article-date">
-      <time datetime="2018-08-13T09:42:43.000Z" itemprop="datePublished">08-13</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/JAVA中的Thread/">JAVA中的Thread</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并发/">并发</a></li></ul>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/08/14/线程池的好处/">线程池的好处</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">WoDeFeiZhu</a></p>
+        <p><span>发布时间:</span>2018-08-14, 14:26:25</p>
+        <p><span>最后更新:</span>2018-08-14, 14:41:41</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/14/线程池的好处/" title="线程池的好处">http://wodefeizhu.github.io/2018/08/14/线程池的好处/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wodefeizhu.github.io/2018/08/14/线程池的好处/　　作者: WoDeFeiZhu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/13/JAVA中的Thread/">
+                    JAVA中的Thread
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/08/02/hello-world/" class="archive-article-date">
-      <time datetime="2018-08-02T09:19:58.285Z" itemprop="datePublished">08-02</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池（Thread-Pool）"><span class="toc-number">1.</span> <span class="toc-text">线程池（Thread Pool）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#场景"><span class="toc-number">1.1.</span> <span class="toc-text">场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java中线程池的实现"><span class="toc-number">2.</span> <span class="toc-text">Java中线程池的实现</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
     
+<div class="share">
+    
 
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/08/13/JAVA中的Thread/" title="下一篇: JAVA中的Thread">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/线程池的好处/">线程池的好处</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/JAVA中的Thread/">JAVA中的Thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
